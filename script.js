@@ -67,7 +67,7 @@ const formElement = '<form id="form">' + input("text", "firstname", "Keresztneve
 
 const formElement = `
     <form id="form">
-        <header>FORM</header>
+        <header>Contact form</header>
         ${ input("text", "firstname", "Keresztneved") }
         ${ input("file", "profilePicture", "Profilképed") }
         ${ input("email", "personalEmail", "Email-címed") }

@@ -42,7 +42,7 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 30px;
   color: #faed26;
-  background-color: #026670;
+  background: url(https://images.unsplash.com/photo-1527064563585-6c7b2c1c3690?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTQ2NjI5fHxlbnwwfHx8fA%3D%3D&w=1000&q=80);
 }
 
 #root {
@@ -59,6 +59,8 @@ body {
   justify-content: space-around;
   text-align: center;
   background-color: #17252a;
+  opacity: 0.7;
+  
 }
 
 input[type="text"],
@@ -88,7 +90,6 @@ input[type="checkbox"] {
   color: #faed26; 
   
   background-color: #3aafa9;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   font-size: 18px;
 }
 
@@ -103,7 +104,6 @@ select {
   font-family: 'Cormorant Garamond', serif;
   font-size: 30px;
   color: #faed26; 
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   font-size: 18px;
 }
 
