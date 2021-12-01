@@ -32,7 +32,7 @@ functionName();
 */
 
 
-const input = (type, name, label) => {
+const input = (type, name, label, selectOptions) => {
     return `
         <div>
             <label>${label}</label>
@@ -40,13 +40,40 @@ const input = (type, name, label) => {
         </div>
     `
 }
+
+const selectElement = (type, name, label, selectOptions) => {
+    let optionElements = "";
+    for (const option of selectOptions) {
+        optionElements += `
+            <option>${option}</option>
+        `;
+    }
+    /* `plusz sortöréssel tudok lazítani, azért nem írtam egy sorba*/
+
+    return `
+        <div>
+            <label>${label}</label>
+            <${type} name="${name}">
+                ${optionElements}
+            </${type}>
+        </div>
+    `
+}
+
+/*
+const formElement = '<form id="form">' + input("text", "firstname", "Keresztneved") + input("file", "profilePicture", "Profilképed") + input("email", "personalEmail", "Email-címed") + input("checkbox", "newsletter", "Szeretnél-e hírlevelet kapni?") + input("checkbox", "terms", "Elfogadod-e a felhasználási feltételeket?") + selectElement("select", "where", "Hol hallottál rólunk?", ["internet", "ismeros", "egyéb"]) + '<button>ok</button>' + '</form>'
+*/
+
+
 const formElement = `
     <form id="form">
+        <header>FORM</header>
         ${ input("text", "firstname", "Keresztneved") }
         ${ input("file", "profilePicture", "Profilképed") }
         ${ input("email", "personalEmail", "Email-címed") }
-        ${ input("radio", "newsletter", "Szeretnél-e hírlevelet kapni?") }
+        ${ input("checkbox", "newsletter", "Szeretnél-e hírlevelet kapni?") }
         ${ input("checkbox", "terms", "Elfogadod-e a felhasználási feltételeket?") }
+        ${ selectElement("select", "where", "Hol hallottál rólunk?", ["internet", "ismeros", "egyéb"]) }
         <button>ok</button>
         </form>
 `;
@@ -56,14 +83,35 @@ const formSubmit = (event)  => {
     event.preventDefault();
     //az alapértelmezett muködése ne fusson le, ezzel érem el
     console.log(event);
-    event.target.classList.add("submitted");
-    /*maga a form elementre vonatkozik*/
+
+    const et = event.target;
+    et.classList.add("submitted");
+    /*event.target maga a form elementre vonatkozik*/
+
+    /*selectElement valuejat hogyan tudom kiírni? querySelral*/
+    const etValue = et.querySelector(`select[name="where"]`).value;
+    console.log(etValue);
 }
 
 const inputEvent = (event)  => {
     console.log(event.target.value);
-    document.getElementById("inputValueContent").innerHTML = event.target.value;
+    console.log(event);
+
+    const fName = document.querySelector(`input[name="firstName"]`);
+    /*kiszelektálja az elsot, amire igaz. Ha ezzel dolgozni szeretnék for ciklus szintjén, akkor tömbként tudom kezelni.*/
+    
+    /*
+    const tryForm = fName.closest("#form")
+    console.log(tryForm)
+    a legközelebbi olyan parent, amire igaz, hogy id=form
+    itt tudunk utazni, el tudunk kapni mást is
+    */
+
+    console.log(fName);
+    if (event.target.getAttribute("name") === "firstName") {
+        document.getElementById("inputValueContent").innerHTML = event.target.value;
     }
+}
 
 function loadEvent() {
     const root = document.getElementById("root");
