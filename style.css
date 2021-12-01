@@ -42,7 +42,8 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-size: 30px;
   color: #faed26;
-  background: url(https://images.unsplash.com/photo-1527064563585-6c7b2c1c3690?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTQ2NjI5fHxlbnwwfHx8fA%3D%3D&w=1000&q=80);
+  background: url(https://images.unsplash.com/photo-1527064563585-6c7b2c1c3690?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxMTQ2NjI5fHxlbnwwfHx8fA%3D%3D&w=1000&q=80) no-repeat;
+  background-size: 100%;
 }
 
 #root {
@@ -51,7 +52,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
 
-  width: 70%;
+  width: 50%;
   height: 500px;
  
   display: flex;
@@ -63,9 +64,15 @@ body {
   
 }
 
+header {
+  background-color: #0097a7;
+  margin: 40px 0;
+}
+
 input[type="text"],
 input[type="email"] {
   width: 60%;
+  margin: 10px;
   
   padding: 12px;
   border: 1px solid #fce181;
@@ -89,7 +96,7 @@ input[type="checkbox"] {
   font-size: 40px;
   color: #faed26; 
   
-  background-color: #3aafa9;
+  background-color: #0097a7;
   font-size: 18px;
 }
 
@@ -112,10 +119,12 @@ button {
   margin-top: 40px;
   padding: 5px;
   border-radius: 10px;
+  border: 2px solid #faed26;
   
-  background-color: #3aafa9;
+  background-color: #0097a7;
   font-size: 20px;
-  color: #17252a;
+  color: #faed26; 
+  
 }
 
 
